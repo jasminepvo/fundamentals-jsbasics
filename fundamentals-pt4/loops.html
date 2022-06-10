@@ -25,6 +25,7 @@
 
   </body>
   <script>
+    // Task 1
     const myArray = ['tomatoes', 'chick peas', 'onions', 'rice', 'black beans'];
     const list = document.createElement('ul');
 
@@ -34,10 +35,65 @@
       listItem.textContent = item;
       list.appendChild(listItem);
     }
-    // Don't edit the code below here!
 
     const section = document.querySelector('section');
     section.appendChild(list);
+
+    // Task 2
+    const name = 'Mustafa';
+    const para = document.createElement('p');
+
+    const phonebook = [
+      { name : 'Chris', number : '1549' },
+      { name : 'Li Kang', number : '9634' },
+      { name : 'Anne', number : '9065' },
+      { name : 'Francesca', number : '3001' },
+      { name : 'Mustafa', number : '6888' },
+      { name : 'Tina', number : '4312' },
+      { name : 'Bert', number : '7780' },
+      { name : 'Jada', number : '2282' },
+    ]
+
+    // In this next task, we want you to write a simple program that, given a name, searches an array of objects containing names and phone numbers (phonebook) and, if it finds the name, outputs the name and phone number into the paragraph (para) and then exits the loop before it has run its course.
+    for(let i=0; i < phonebook.length; i++){
+      if(phonebook[i].name === name) {
+        para.textContent = `${ phonebook[i].name }'s number is ${ phonebook[i].number }.`;
+        break;
+      }
+
+      if(i === phonebook.length) {
+        para.textContent = 'Name not found in the phonebook';
+      }
+
+      i++;
+    }
+    
+    const section2 = document.querySelector('section');
+    section2.appendChild(para);
+
+    // Task 3
+    let i = 500;
+    const paragraph = document.createElement('p');
+
+    function isPrime(num) {
+      for(let i = 2; i < num; i++) {
+        if(num % i === 0) {
+          return false;
+        }
+      }
+      return true;
+    }
+    // Finally, you'll need to use a loop to go through the numbers 1 to 500, backwards, and run the isPrime() function on them. For each number that isn't a prime number, use the continue keyword to move on to the next loop iteration. For each one that is a prime number, add it to the paragraph's textContent.
+  do {
+    if (isPrime(i)) {
+      paragraph.textContent += `${i} `;
+    } 
+    i--;
+  } while (i > 1);
+
+    const section3 = document.querySelector('section');
+    section3.appendChild(paragraph);
+
   </script>
 
 </html>
